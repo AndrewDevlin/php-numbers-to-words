@@ -28,5 +28,18 @@
             //Assert
             $this->assertEquals("eighty ", $results);
         }
+
+        function test_translateNumbersToWords_underHundredTensRemainder()
+        {
+            //Arrange
+            $numberToChange = new NumbersToWords;
+            $input = 88;
+
+            //Act
+            $results = $numberToChange->translateNumbersToWords($input);
+
+            //Assert
+            $this->assertEquals("eighty eight", $results);
+        }
     }
  ?>
