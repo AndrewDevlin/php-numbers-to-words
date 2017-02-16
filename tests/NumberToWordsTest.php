@@ -3,7 +3,7 @@
 
     class NumbersToWordsTest extends PHPUnit_Framework_TestCase
     {
-        function test_translateNumbersToWords_singleDigit()
+        function test_translateNumbersToWords_underTwenty()
         {
             //Arrange
             $numberToChange = new NumbersToWords;
@@ -14,6 +14,19 @@
 
             //Assert
             $this->assertEquals("one", $results);
+        }
+
+        function test_translateNumbersToWords_underHundredTens()
+        {
+            //Arrange
+            $numberToChange = new NumbersToWords;
+            $input = 80;
+
+            //Act
+            $results = $numberToChange->translateNumbersToWords($input);
+
+            //Assert
+            $this->assertEquals("eighty ", $results);
         }
     }
  ?>

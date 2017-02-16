@@ -4,8 +4,9 @@
         function translateNumbersToWords($user_number)
         {
             $result_output = "";
+            $working_number = $user_number;
 
-            $singleDigits = array(
+            $underTwentyDigits = array(
                 1 => "one", 2 => "two",
                 3 => "three", 4 => "four",
                 5 => "five", 6 => "six",
@@ -17,9 +18,24 @@
                 17 => "seventeen", 18 => "eighteen",
                 19 => "nineteen");
 
-            if ($user_number < 20) {
-                foreach ($singleDigits as $number => $written_number) {
-                    if ($user_number == $number) {
+            $tensDigits = array(
+                2 => "twenty", 3 => "thirty",
+                4 => "fourty", 5 => "fifty",
+                6 => "sixty", 7 => "seventy",
+                8 => "eighty", 9 => "ninety");
+
+            if ($working_number < 100 && $working_number > 19) {
+                foreach ($tensDigits as $number => $written_number) {
+                    if (floor($working_number / 10) == $number) {
+                        $result_output .= "$written_number ";
+                        $working_number -= $number * 10;
+                    }
+                }
+            }
+
+            if ($working_number < 20) {
+                foreach ($underTwentyDigits as $number => $written_number) {
+                    if ($working_number == $number) {
                         $result_output .= $written_number;
                     }
                 }
