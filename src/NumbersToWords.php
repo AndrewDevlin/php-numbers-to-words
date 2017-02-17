@@ -24,6 +24,16 @@
                 6 => "sixty", 7 => "seventy",
                 8 => "eighty", 9 => "ninety");
 
+            // Not working here, need to put in both "hundred" and "thousand", i.e. 200,000 is "two hundred thousand", however with 234,000 you need to do "two hundred thirty four thousand" and the "thousand" need to come after the "thirty four"
+
+            // if ($working_number < 1000000 && $working_number > 99999) {
+            //     foreach ($underTwentyDigits as $number => $written_number) {
+            //         if (floor($working_number / 100000) == $number) {
+            //
+            //         }
+            //     }
+            // }
+
             if ($working_number < 100000 && $working_number > 999) {
                 if ($working_number > 19000) {
                     foreach ($tensDigits as $number => $written_number) {
