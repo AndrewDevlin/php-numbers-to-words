@@ -80,5 +80,18 @@
             //Assert
             $this->assertEquals("twelve thousand ", $results);
         }
+
+        function test_translateNumbersToWords_underTwentyThousandsRemainder()
+        {
+            //Arrange
+            $numberToChange = new NumbersToWords;
+            $input = 12342;
+
+            //Act
+            $results = $numberToChange->translateNumbersToWords($input);
+
+            //Assert
+            $this->assertEquals("twelve thousand three hundred forty two", $results);
+        }
     }
  ?>

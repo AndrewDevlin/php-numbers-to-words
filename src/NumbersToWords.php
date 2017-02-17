@@ -20,14 +20,14 @@
 
             $tensDigits = array(
                 2 => "twenty", 3 => "thirty",
-                4 => "fourty", 5 => "fifty",
+                4 => "forty", 5 => "fifty",
                 6 => "sixty", 7 => "seventy",
                 8 => "eighty", 9 => "ninety");
 
             if ($working_number < 20000 && $working_number > 999) {
                 foreach ($underTwentyDigits as $number => $written_number) {
                     if (floor($working_number / 1000) == $number) {
-                        $result_output = "$written_number thousand ";
+                        $result_output .= "$written_number thousand ";
                         $working_number -= $number * 1000;
                     }
                 }
@@ -36,7 +36,7 @@
             if ($working_number < 1000 && $working_number > 99) {
                 foreach ($underTwentyDigits as $number => $written_number) {
                     if (floor($working_number / 100) == $number) {
-                        $result_output = "$written_number hundred ";
+                        $result_output .= "$written_number hundred ";
                         $working_number -= $number * 100;
                     }
                 }
