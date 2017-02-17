@@ -41,5 +41,18 @@
             //Assert
             $this->assertEquals("eighty eight", $results);
         }
+
+        function test_translateNumbersToWords_underThousands()
+        {
+            //Arrange
+            $numberToChange = new NumbersToWords;
+            $input = 400;
+
+            //Act
+            $results = $numberToChange->translateNumbersToWords($input);
+
+            //Assert
+            $this->assertEquals("four hundred ", $results);
+        }
     }
  ?>
