@@ -93,5 +93,18 @@
             //Assert
             $this->assertEquals("twelve thousand three hundred forty two", $results);
         }
+
+        function test_translateNumbersToWords_underHundredThousand()
+        {
+            //Arrange
+            $numberToChange = new NumbersToWords;
+            $input = 20000;
+
+            //Act
+            $results = $numberToChange->translateNumbersToWords($input);
+
+            //Assert
+            $this->assertEquals("twenty thousand ", $results);
+        }
     }
  ?>
