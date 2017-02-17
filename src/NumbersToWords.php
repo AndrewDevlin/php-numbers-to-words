@@ -24,23 +24,27 @@
                 6 => "sixty", 7 => "seventy",
                 8 => "eighty", 9 => "ninety");
 
-            if ($working_number < 100000 && $working_number > 19999) {
-                foreach ($tensDigits as $number => $written_number) {
-                    if (floor($working_number / 10000) == $number) {
-                        $result_output .= "$written_number thousand ";
-                        $working_number -= $number * 10000;
+            if ($working_number < 100000 && $working_number > 999) {
+                if ($working_number > 19000) {
+                    foreach ($tensDigits as $number => $written_number) {
+                        if (floor($working_number / 10000) == $number) {
+                            $result_output .= "$written_number ";
+                            $working_number -= $number * 10000;
+                        }
                     }
                 }
+
+                if ($working_number > 999) {
+                    foreach ($underTwentyDigits as $number => $written_number) {
+                        if (floor($working_number / 1000) == $number) {
+                            $result_output .= "$written_number ";
+                            $working_number -= $number * 1000;
+                        }
+                    }
+                }
+                $result_output .= "thousand ";
             }
 
-            if ($working_number < 20000 && $working_number > 999) {
-                foreach ($underTwentyDigits as $number => $written_number) {
-                    if (floor($working_number / 1000) == $number) {
-                        $result_output .= "$written_number thousand ";
-                        $working_number -= $number * 1000;
-                    }
-                }
-            }
 
             if ($working_number < 1000 && $working_number > 99) {
                 foreach ($underTwentyDigits as $number => $written_number) {
